@@ -9,6 +9,20 @@
 */
 function uefaEuro2016(teams, scores) {
 
+    // 1. Creamos variables para poder desglosar los dos strigns del arrat teams y hacemos lo mismo para scores.
+    let team1 = teams[0]; 
+    let team2 = teams[1];
+    let score1 = scores[0];
+    let score2 = scores[1];
+
+    // COn la condicion buscamos si el score 1 es mas grande que el score 2 nos devuelva que el team1 ha ganado.
+    if (score1 > score2) {
+        return "At match " + team1 + " - " + team2 + " , " + team1 + " won!";
+    } else if (score2 > score1) {
+        return "At match " + team1 + " - " + team2 + " , " + team2 + " won!";
+    } else {
+        return "At match " + team1 + " - " + team2 + " , teams played draw."; 
+    }
 }
 
 console.log(uefaEuro2016(['Germany', 'Ukraine'], [2, 0])) // "At match Germany - Ukraine, Germany won!"
