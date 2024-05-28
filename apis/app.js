@@ -8,7 +8,6 @@ const url = document.querySelector('#homeUrl');
 
 button.addEventListener('click', async () => {
     const username = document.getElementById('username').value;
-
     const response = await fetch(`https://api.github.com/users/${username}`);
     console.log('Response Object: ', response);
     const data = await response.json();
