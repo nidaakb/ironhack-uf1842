@@ -12,7 +12,15 @@
  */
 
 function filterProgrammingLanguages(languages, minYears) {
-
+    // 1. We create an an empty array that will store the name of the languages that respect the minYears criteria.
+    let experienceLanguages = [];
+    // 2. In order to be able to walk through the diferrent languages of the array we have to use a "FOR"
+    for (let i = 0; i <languages.length; i++) {
+        if (languages[i].years >= minYears) {
+            experienceLanguages.push(languages[i].name);
+    }
+}
+    return experienceLanguages;
 }
 
 // Caso 1: Candidata con suficientes años de experiencia en algunos lenguajes
