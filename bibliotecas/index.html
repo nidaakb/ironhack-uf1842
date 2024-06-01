@@ -15,14 +15,18 @@
     </main>
     <script>
         const data = {
-            labels: ['Naranja', 'Plátano', 'Manzana', 'Sandía'],
+            //1. Add "melon" to the array.
+            labels: ['Naranja', 'Plátano', 'Manzana', 'Sandía', 'Melón'],
             datasets: [{
-                data: [17.04, 11.75, 9.44, 7.82],
+                //2. We add the value of the data consumed
+                data: [17.04, 11.75, 9.44, 7.82, 7.62],
                 backgroundColor: [
                     'rgba(255, 165, 0, 0.2)', // Naranja
                     'rgba(255, 255, 0, 0.2)', // Plátano
                     'rgba(255, 0, 0, 0.2)', // Manzana
                     'rgba(0, 99, 0, 0.2)', // Sandía
+                    // 3. We add a background color for the melon.
+                    'rgba(0,143,57)', //Melón
                 ],
                 borderWidth: 1,
                 label: "Consumo de fruta por persona y año"
@@ -32,7 +36,8 @@
 
         // Configuración del gráfico
         const config = {
-            type: 'pie',
+            // 4. We switch the type of graph from pie to bar
+            type: 'bar',
             data: data,
             options: {
                 responsive: true,
@@ -45,12 +50,33 @@
                             label: function (tooltipItem) {
                                 let message = `${tooltipItem.label}: ${tooltipItem.raw} kg`;
 
+                                console.log("🚀 ~ file: index.html:53 ~ tooltipItem:", tooltipItem)
+                                // 5 -  Add a condition to see if the production is higher that 8kg add to the existing message tooltip "Produccion insuficiente" if not add "Produccion".
+                                
+                                if (tooltipItem.raw > 8) {
+                                    message += (". Producción insuficiente");
+                                } else {
+                                    message += (". Producción suficiente")
+                                }
+
                                 return message
 
                             }
                         }
                     }
                 },
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 20,
+                        ticks: {
+                            stepSize: 4,
+                        }
+                        
+                    }
+                }
             }
         };
 

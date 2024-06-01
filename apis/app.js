@@ -6,14 +6,16 @@ const url = document.querySelector('#homeUrl');
 
 
 
-button.addEventListener('click', async () => {
+button.addEventListener('click', async function ()  {
     const username = document.getElementById('username').value;
     const response = await fetch(`https://api.github.com/users/${username}`);
     console.log('Response Object: ', response);
+
     const data = await response.json();
     console.log('Data Object: ', data);
+    
     fullName.textContent = data.name;
     profileBio.textContent = data.bio;
     image.src = data.avatar_url;
-    url.textContent = data.html_url;
+    url.innerHTML = `<a href="${data.html_url}">${data.login}</a>`;
 });
