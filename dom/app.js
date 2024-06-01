@@ -21,7 +21,7 @@ button.addEventListener('click', function () {
     let totalAmount = billAmount + tipAmount;
     console.log("Percentage tip: ", percentageTip);
 
-    // Para poder tener los valores en los campos correctos. (toFixed es para establecer que ponga solo 2 decimales.)
+    // 6 - Para poder tener los valores en los campos correctos. (toFixed es para establecer que ponga solo 2 decimales.)
     document.querySelector("#tip-amount").value = tipAmount.toFixed(2);
     document.querySelector("#total").value = totalAmount.toFixed(2);
     console.log("Total Amount: ", totalAmount);
