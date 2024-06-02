@@ -16,7 +16,9 @@ function filterProgrammingLanguages(languages, minYears) {
     let experienceLanguages = [];
     // 2. In order to be able to walk through the diferrent languages of the array we have to use a "FOR"
     for (let i = 0; i <languages.length; i++) {
+        //3. We create a condition to filter the programming languages
         if (languages[i].years >= minYears) {
+            //4. If the condition is correct the following part adds the langauge to the empty array we created at the beginning of our function. 
             experienceLanguages.push(languages[i].name);
     }
 }
