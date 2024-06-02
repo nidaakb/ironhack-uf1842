@@ -9,7 +9,7 @@ const url = document.querySelector('#homeUrl');
 
 button.addEventListener('click', async function ()  {
     const username = document.getElementById('username').value;
-    // 1. We don API call to retrieve data from the GitHub API.
+    // 1. We do an API call to retrieve data from the GitHub API.
     const response = await fetch(`https://api.github.com/users/${username}`);
     console.log('Response Object: ', response);
     // 2. We now obtained a json file but we need to convert it into JS. 
@@ -22,3 +22,4 @@ button.addEventListener('click', async function ()  {
     image.src = data.avatar_url;
     url.innerHTML = `<a href="${data.html_url}">${data.login}</a>`;
 });
+
